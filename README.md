@@ -199,7 +199,7 @@ done if:
   2. The external symbol is inside an expression that is not
      evaluated immediately (e.g. the body of a function)
 
-## Optimizations Modes Output
+## Real Optimizations Modes Output
 
 __Simple Optimizations Output__
 
