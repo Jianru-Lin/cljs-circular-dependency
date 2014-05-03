@@ -283,4 +283,4 @@ defined since all javascript code has been evaluated.
 
 ## Further Reading
 
-- [Frustrations with namespace in Clojure](http://programming-puzzler.blogspot.com/2013/12/frustrations-with-namespaces-in-clojure.html)
+- [Frustrations with namespaces in Clojure](http://programming-puzzler.blogspot.com/2013/12/frustrations-with-namespaces-in-clojure.html)
