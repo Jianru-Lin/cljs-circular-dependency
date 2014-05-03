@@ -122,6 +122,19 @@ only evaluated the first time it is deref'd.
 This project includes a Single Page App illustrating a real circular dependency
 problem.
 
+### Running
+
+Run the following to build the code:
+
+```
+lein cljsbuild auto
+```
+
+After compiling, open `simple.html` to see that it does nothing, then open
+`advanced.html` to see that it cycles between the Foo and Bar pages.
+
+### Code
+
 `core.cljs` contains a `pages` map which references all the page initialization
 functions.  It also has a `set-page` function for setting the current page.
 
@@ -161,7 +174,7 @@ seconds navigate to the other page (to mimick user navigation between them).
   (js/window.setTimeout #(set-page :foo) 2000))
 ```
 
-## The circular dependency
+### The circular dependency
 
 This is an interesting problem.  The very nature of a "pages map" seems to
 require a cyclic dependency graph, because every page should be able to
@@ -185,7 +198,7 @@ NOTE: This problem wouldn't exist in a multi-page app, where only URLs would be 
 Our single page app tries to encapsulates the responsibility of navigation, which makes
 visible the layer at which these pages are interacting as a circular dependency.
 
-## What :require really does
+### What :require really does
 
 ClojureScript does not allow `:require` to create a circular dependency,
 because it uses `:require` to determine the order at which the namespaces are
@@ -199,7 +212,7 @@ done if:
   2. The external symbol is inside an expression that is not
      evaluated immediately (e.g. the body of a function)
 
-## Real Optimizations Modes Output
+### Real Optimizations Modes Output
 
 __Simple Optimizations Output__
 
