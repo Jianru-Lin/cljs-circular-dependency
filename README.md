@@ -267,3 +267,16 @@ function dd() {
   }, 2E3);
 }
 ```
+
+### The solution
+
+In `core.cljs` wrap the init functions in functions:
+
+```clj
+(def pages {:foo {:init #(circle.foo.init)}
+            :bar {:init #(circle.bar.init)}})
+```
+
+This defers the evaluation of a symbol until they are actually _called_.  By the
+time they are called (after `window.onload`), their symbols are already defined
+since all javascript code has been evaluated.
