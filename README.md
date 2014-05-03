@@ -203,10 +203,6 @@ done if:
 
 __Simple Optimizations Output__
 
-In this mode, all symbols are ripped out of their namespaces (flattened into
-the same scope), allowing references to functions before their definitions due
-to Javascript's function-hoisting.
-
 ```javascript
 var circle = {core:{}};
 circle.core.pages = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "foo", "foo", 1014005816), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "init", "init", 1017141378), circle.foo.init], null), new cljs.core.Keyword(null, "bar", "bar", 1014001541), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "init", "init", 1017141378), circle.bar.init], null)], null);
@@ -233,10 +229,6 @@ circle.bar.init = function() {
 ```
 
 __Advanced Optimizations Output__
-
-In this mode, all symbols are ripped out of their namespaces (flattened into
-the same scope), allowing references to functions before their definitions due
-to Javascript's function-hoisting.
 
 ```javascript
 var Xa = new X(null, "dup", "dup"), bb = new X(null, "default", "default"), ad = new X(null, "foo", "foo"), bd = new X(null, "init", "init"), cd = new X(null, "bar", "bar"), Ua = new X(null, "flush-on-newline", "flush-on-newline"), Ya = new X(null, "print-length", "print-length"), t = new X(null, "else", "else"), Va = new X(null, "readably", "readably"), Wa = new X(null, "meta", "meta");
