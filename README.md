@@ -60,7 +60,7 @@ example.bar.init = function() {
 example.bar.init_foo = example.foo.init;  // <--- (resolves, even though we didn't use :require)
 ```
 
-__Advanced optimizations__ mode munges the names into the same scope, flattening
+__Advanced optimizations__ mode munges all namespaced symbols into the same scope, flattening
 the namespaces together. (The names are preserved below for readability).
 
 ```javascript
