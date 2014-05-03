@@ -39,7 +39,7 @@ reader macro `#_`).
 The resulting compiled JS will only run without errors in `:optimizations
 :advanced` mode.  Here's why:
 
-Simple optimizations mode preserves namespaces as JS objects, so you can see
+__Simple optimizations__ mode preserves namespaces as JS objects, so you can see
 the point where it would fail due to an unresolved symbol (commented below).
 
 ```javascript
@@ -60,7 +60,7 @@ example.bar.init = function() {
 example.bar.init_foo = example.foo.init;  // <--- (resolves, even though we didn't use :require)
 ```
 
-Advanced optimizations mode munges the names into the same scope, flattening
+__Advanced optimizations__ mode munges the names into the same scope, flattening
 the namespaces together. (The names are preserved below for readability).
 
 ```javascript
