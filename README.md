@@ -130,8 +130,9 @@ Run the following to build the code:
 lein cljsbuild auto
 ```
 
-After compiling, open `simple.html` to see that it does nothing, then open
-`advanced.html` to see that it cycles between the Foo and Bar pages.
+After compiling, open `simple.html` to see that it does nothing (see console
+for error), then open `advanced.html` to see that it cycles between the Foo and
+Bar pages.
 
 ### Code
 
