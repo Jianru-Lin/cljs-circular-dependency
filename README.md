@@ -112,11 +112,9 @@ You can also use the [`delay`](http://clojure.github.io/clojure/clojure.core-api
 But to invoke the function, you must use the deref form `@`.  The delay body is
 only evaluated the first time it is deref'd.
 
-...
-
-(defn do-something []
-  ; invoke it somewhere by deref'ing it
-  (@init-bar))
+```clj
+; invoke it somewhere by deref'ing it
+(@init-bar)
 ```
 
 ## A real example
