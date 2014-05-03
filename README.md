@@ -140,7 +140,10 @@ Bar pages.
 functions.  It also has a `set-page` function for setting the current page.
 
 ```clj
-(ns circle.core)
+(ns circle.core
+  #_(:require
+      [circle.foo]
+      [circle.bar]))
 
 (def pages {:foo {:init circle.foo.init}
             :bar {:init circle.bar.init}})
@@ -151,6 +154,10 @@ functions.  It also has a `set-page` function for setting the current page.
 
 (.addEventListener js/window "load" #(set-page :foo))
 ```
+
+(Note: we are using the "ignore-next-form" reader macro `#_` to ignore the
+requiring of `circle.foo` and `circle.bar`. This cuts the circular dependency,
+allowing our program to compile.)
 
 `foo.cljs` and `bar.cljs` are pages that display their page name, then after 2
 seconds navigate to the other page (to mimick user navigation between them).
@@ -182,13 +189,17 @@ require a cyclic dependency graph, because every page should be able to
 navigate to another page.  It's very "web"-like, of course.
 
 ```
-                                |-----------------------|
+                (We cut the circular dependency
+                  here for compiling)
+                        |
+                        |
+                        v       |-----------------------|
  PAGES MAP   --------------------> PAGE BUILD FUNCTIONS |
                 (references)    |                       |
      ^                          |          |            |
      |                          |          |            |
      | (calls)                  |          | (setup)    |
-     |                          |          V            |
+     |                          |          v            |
                                 |                       |
 SET CURRENT  <-------------------- PAGE EVENT FUNCTIONS |
    PAGE           (calls)       |-----------------------|

@@ -1,4 +1,7 @@
-(ns circle.core)
+(ns circle.core
+  #_(:require
+      [circle.foo]
+      [circle.bar]))
 
 (def pages {:foo {:init circle.foo.init}
             :bar {:init circle.bar.init}})
