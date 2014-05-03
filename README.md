@@ -26,7 +26,7 @@ them reference each other's `init` functions.
   #_(:require [example.foo]))
 
 (defn init []
-  (println "Hello from Foo"))
+  (println "Hello from Bar"))
 
 (def init-foo example.foo.init)
 ```
