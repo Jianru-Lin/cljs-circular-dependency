@@ -95,7 +95,7 @@ want to use Advanced optimizations mode, you can do this:
 or
 
 ```clj
-(defn init-bar (example.bar.init))
+(defn init-bar [] (example.bar.init))
 ```
 
 The idea is that you cannot evaluate the external symbol until is defined, so
