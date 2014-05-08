@@ -82,6 +82,21 @@ hoisted if they are of the form `function name() { body }` , not the form
 `name = function() { body }` form.  So functions inside namespaces (js
 objects) cannot be referenced before they are defined.
 
+#### A note on Hoisting of Exported symbols
+
+After looking at the compilation strategies of Simple vs Advanced, it might
+seem that using `^:export` on a function would preserve the namespace
+hierarchy, thus preventing hoisting.  This is not true.
+
+Exported symbols are still flattened and munged, but they are written to JS
+variables using their fully qualified namespace:
+
+```javascript
+exportToJS("example.foo.init", foo_init);
+exportToJS("example.bar.init", bar_init);
+```
+
+
 ### The short solution
 
 If you are referencing a function in another namespace, and you cannot
@@ -277,7 +292,11 @@ function dd() {
     return gd(ad);
   }, 2E3);
 }
+// code below is present only if the init functions are exported:
+ca("circle.foo.init", fd);
+ca("circle.bar.init", gd);
 ```
+
 
 ### The solution
 
